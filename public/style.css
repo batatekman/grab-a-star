@@ -4,7 +4,7 @@
 
 body {
   background-color: black;
-  margin: 30px;
+  background: url("images/bg-star2.jpg") center no-repeat;
   color: white;
 }
 
@@ -34,6 +34,7 @@ p {
   grid-template-columns: repeat(3, 120px);
   grid-template-rows: repeat(3, 120px);
   justify-content: center;
+  opacity: 0.9;
 }
 
 .game {
