@@ -1,0 +1,25 @@
+name: Grab A Star CI/CD Workflow
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+job:
+  build:
+    runs-on: ubuntu-latest
+
+  steps:
+    - uses: actions/checkout@v2
+    - name: Build the site using the Jekyll CI Script
+      run: |
+        docker run \
+        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
+        jekyll/builder:latest /bin/bash -c "chmod 777 /srv/jekyll && jekyll build --future"
+    - name: Upload Grab A Star Build to Firebase Application
+    - uses: w9jds/firebase-action@master
+    with:
+      args: deploy --only hosting
+    env:
+      FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

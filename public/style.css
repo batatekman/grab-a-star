@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  margin: 30px;
+  color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  text-align: center;
+}
+
+.square {
+  border: 1px solid white;
+  border-radius: 3px;
+  font-size: 2em;
+  font-family: sans-serif;
+  font-weight: bold;
+  background-color: black;
+  width: 120px;
+  height: 120px;
+  cursor: pointer;
+}
+
+.container {
+  display: grid;
+  grid-gap: 0rem;
+  grid-template-columns: repeat(3, 120px);
+  grid-template-rows: repeat(3, 120px);
+  justify-content: center;
+}
+
+.game {
+  text-align: center;
+}
+
+.star {
+  background-image: url("images/Star.jpg");
+  background-size: cover;
+}
